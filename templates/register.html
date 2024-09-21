@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2 style="color: #80004c">Get the latest offer register now!</h2>
+<form method="POST" >
+{% csrf_token %}
+<center><img src="static/images/login.webp" height="220px" width="480px" class="m-2">
+
+  <div class="col-md-4">
+    <label  class="form-label">Username</label>
+    <input type="text" class="form-control" name="u" placeholder="enter the username">
+  </div>
+
+  <div class="col-md-4">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="p" placeholder="enter the password">
+  </div>
+
+  <div class="col-md-4">
+    <label  class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="cp" placeholder="enter the confirm password">
+  </div>
+    <div class="col-md-4">
+    <label  class="form-label">Email</label>
+    <input type="Email" class="form-control" name="e" placeholder="enter the email">
+
+  </div>
+
+  <div class="col-md-4"style="padding-top:10px;">
+
+    <input type="submit" class="form-control btn btn-danger " style="background-color:#80004c ">
+  </div>
+  </form></center>
+{% endblock %}

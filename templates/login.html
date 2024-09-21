@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2 style="color:#80004c;">Login to view your profile</h2>
+<form method="POST" >
+{% csrf_token %}
+<center><img src="static/images/login.webp" height="250px" width="480px" class="m-2">
+  <div class="col-md-4">
+    
+    <label  class="form-label">Username</label>
+    <input type="text" class="form-control" name="u" placeholder="enter the username">
+  </div>
+
+  <div class="col-md-4">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="p" placeholder="enter the password">
+  </div>
+  <div class="col-md-4"style="padding-top:10px;">
+
+    <input type="submit" class="form-control btn btn-danger " style="background-color:#80004c ">
+  </div>
+
+  <p style="padding-top:80px;">By continuing, you agree to irafashion's 
+    Terms & Conditions  
+    and  
+    Privacy Policy</p>
+</form>
+{% if messages %}
+{% for i in messages %}
+<ul>
+  <li>{{i}}</li>
+
+</ul>
+{% endfor %}
+{% endif %}
+
+{% endblock %}</center>

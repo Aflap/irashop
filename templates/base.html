@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ira shopping</title>
+        <!-- Favicon-->
+         
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/assets/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        
+       <div style="background-color:#80004c; height:70px;"> <center> <h5 style="color:white; font-size:30px; padding-top:10px;">Welcome{{u}} to the world of shopping! </h5>
+        </center> </div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ede9da ">{% if not is_base.html %}
+        
+           <div class="back-button" style="padding-left:30px; "> <a href="javascript:history.back()" style="background-color:#80004c" class="btn btn-secondary">&larr;</a></div>
+       
+        {% endif %} 
+           <div class="container px-4 px-lg-5" ><img src="{% static 'images/logo.jpeg' %}" height="40px" width="100px"  class="m-2">
+               <h3 style=" color:#80004c; padding-left:15px; padding-top:20px;" ><strong>IRA FASHION</strong> </h3>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" style="padding-top:10px; font-size:18px;">
+                       
+                        <li class="nav-item" ><a class="nav-link" style="color:#80004c; padding-left:200px; " aria-current="page" href="{% url 'shop:allcat' %}"><strong>Home</strong></a></li>
+                        
+                       
+
+                       
+                     
+
+                       
+                        {% if user.is_authenticated %}
+                       
+                       
+              
+                       <li class="nav-item">
+                       <a class="nav-link" aria-current="page" style="color:#80004c;"  href="{% url  'shop:logout' %}"><strong>Logout</strong></a>
+                     </li>
+             
+                     {% else %}
+                   <li class="nav-item">
+                       <a class="nav-link" aria-current="page" style="color:#80004c;"  href="{% url  'shop:register' %}"><strong>Register</strong></a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" aria-current="page" style="color:#80004c;" href="{% url  'shop:login' %}"><strong>Login</strong></a> </li>
+                     {% endif %}
+                    </ul>  
+                      </ul>
+                    <form class="d-flex" method="POST" action="{% url 'search:search' %}">
+                        {% csrf_token %}
+                        
+                        <input class="form-control me-2" name="q" type="search" style="width:400px;" placeholder=" 🔍 Try saree,kurthi or search what you want" aria-label="Search">
+                       
+                      </form>
+                    
+                      {% if user.is_authenticated %}
+                      <form class="d-flex" >
+                          <button class="btn btn-outline-dark" type="submit">
+                              
+                        <a class="nav-link nav-item" aria-current="page" href="{% url 'cart:cartview' %}">Cart
+                          <i class="bi-cart-fill me-1" aria-hidden="true"></i>&nbsp;&nbsp;{{count}}</a>
+                     
+                          </button>
+                      </form>
+
+
+                    
+              
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Section-->{% block content %}
+        
+                                  {% endblock %}
+                            
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/assets/js/scripts.js"></script>
+    </body>
+</html>
+<footer>
+
+    <div class="mt-5 footer " style="  height:50px;
+  width:100%;
+  background-color:white;
+  position:fixed;
+  bottom:0;
+  left:0;
+  text-align:center;">
+  
+      <p style="padding-top:10px;  font-weight:bold; "><i class="fa-regular fa-copyright"></i> irashop.com 2024, All Rights Reserved</p>
+    </div>
+    
+    </footer>

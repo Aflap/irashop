@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-5">
+    <center>
+        
+        <h1 class="text-center" style="color:#80004c;">Congratulations<br>{{m}}</h1>
+        <h4 class="text-center text-primary">Product will deliver sep 13</h4>
+        <h2 class="text-center text-primary">Thank You For Shopping....</h2>
+        <h5><a href="{% url 'shop:allcat' %}">Continue Shopping</a></h5>
+        
+
+    </center>
+</div>
+{% endblock %}
